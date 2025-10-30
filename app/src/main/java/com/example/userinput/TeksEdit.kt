@@ -13,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.foundation.layout.Row
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun FormDataDiri(modifier : Modifier
@@ -57,7 +58,15 @@ fun FormDataDiri(modifier : Modifier
                 }
             }
         }
-        OutlinedTextField()
+        OutlinedTextField(
+            value = textAlamat,
+            singleLine = true,
+            modifier = Modifier.width(width = 250.dp),
+            label = { Text(text = "Alamat Lengkap") },
+            onValueChange = {
+                textAlamat = it
+            }
+        )
     }
 
 
