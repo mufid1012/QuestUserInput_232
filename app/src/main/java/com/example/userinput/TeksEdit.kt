@@ -22,22 +22,24 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun FormDataDiri(modifier : Modifier
-){
+) {
     //variabel-variabel untuk mengingat nilai masukkan dari keyboard
-    var textNama by remember() { mutableStateOf(value = "")}
-    var textAlamat by remember { mutableStateOf(value = "")}
-    var textJK by remember { mutableStateOf(value = "")}
+    var textNama by remember() { mutableStateOf(value = "") }
+    var textAlamat by remember { mutableStateOf(value = "") }
+    var textJK by remember { mutableStateOf(value = "") }
 
     //variabel-variabel untuk menyimpan untuk menyimpan data yang diperoloh dari komponen
-    var nama by remember {mutableStateOf(value = "")}
-    var alamat by remember {mutableStateOf(value = "")}
-    var jenis by remember {mutableStateOf(value = "") }
+    var nama by remember { mutableStateOf(value = "") }
+    var alamat by remember { mutableStateOf(value = "") }
+    var jenis by remember { mutableStateOf(value = "") }
 
     val gender: List<String> = listOf("Laki-Laki", "Perempuan")
 
-    Column(modifier = Modifier.padding(top = 50.dp),
+    Column(
+        modifier = Modifier.padding(top = 50.dp),
         verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally) {
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         OutlinedTextField(
             value = textNama,
             singleLine = true,
@@ -50,9 +52,10 @@ fun FormDataDiri(modifier : Modifier
         )
         Row {
             gender.farEach { item ->
-                Row(modifier = Modifier.selectable(
+                Row(
+                    modifier = Modifier.selectable(
                     selected = textJK == item,
-                    onClick = {textJK = item }
+                    onClick = { textJK = item }
                 ), verticalAlignment = Alignment.CenterVertically) {
                     RadioButton(
                         selected = TextJK == item,
@@ -78,7 +81,7 @@ fun FormDataDiri(modifier : Modifier
                 button = dimensionResource(id = R.dimen.padding_medium),
                 top = dimensionResource(id = R.dimen.padding_medium)
             ),
-            thickness = dimensionResource( id = R.dimen.divider_tipis),
+            thickness = dimensionResource(id = R.dimen.divider_tipis),
             color = Color.DarkGray
         )
         Button(
@@ -86,11 +89,11 @@ fun FormDataDiri(modifier : Modifier
             // the button is enabled when the user makes a selection
             enabled = textAlamat.isNotEmpty(),
             onClick = {
-                nama=textNama
-                jenis=textJK
-                alamat=textAlamat
+                nama = textNama
+                jenis = textJK
+                alamat = textAlamat
             }
-        ){
+        ) {
             Text(text = stringResource(id = R.string.submit))
         }
 
@@ -99,7 +102,7 @@ fun FormDataDiri(modifier : Modifier
                 bottom = dimensionResource(id = R.dimen.padding_medium),
                 top = dimensionResource(id = R.dimen.padding_medium)
             ),
-            thickness = dimensionResource(1dp),
+            thickness = dimensionResource(1 dp),
             color = Color.DarkGrey
         )
         Button(
@@ -107,22 +110,36 @@ fun FormDataDiri(modifier : Modifier
             // the button is enabled when the user makes a selection
             enabled = textAlamat.isNotEmpty(),
             onClick = {
-                nama=textNama
-                jenis=textJK
-                alamat=textAlamat
+                nama = textNama
+                jenis = textJK
+                alamat = textAlamat
             }
         ) {
             Text(stringResource(R.string.submit))
         }
 
         HorizontalDivider(
-            modifier = Modifier.padding(bottom = dimensionResource(R.dimen.padding_medium), top = dimensionResource(
-                id = R.dimen.padding_medium
-            )),
+            modifier = Modifier.padding(
+                bottom = dimensionResource(R.dimen.padding_medium), top = dimensionResource(
+                    id = R.dimen.padding_medium
+                )
+            ),
             thickness = dimensionResource(R.dimen.divider_tipis),
             color = Color.DarkGray
         )
 
+        ElevatedCard(
+            elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
+            colors = CardDefaults.cardColors(containerColor = Color.Black),
+            modifier = Modifier
+                .height(100.dp)
+                .width(300.dp)
+        ) {
+            Column(modifier = Modifier.padding(horizontal = 5.dp, vertical = 15.dp),) {
+                Text(text = "Nama   : " + nama, color = Color.White)
+                Text(text = "Gender : " + jenis, color = Color.White)
+                Text(text = "Alamat : " + alamat, color = Color.White)
+            }
+        }
     }
-
 }
