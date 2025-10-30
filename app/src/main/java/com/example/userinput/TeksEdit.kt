@@ -7,28 +7,35 @@ import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
+import androidx.compose.material3.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.graphics.Color
+import androidx.compose.foundation.layout.height
 
 @Composable
-fun FormDataDiri(modifier : Modifier
-) {
-    //variabel-variabel untuk mengingat nilai masukkan dari keyboard
-    var textNama by remember() { mutableStateOf(value = "") }
+fun FormDataDiri(modifier: Modifier) {
+    // variabel-variabel untuk mengingat nilai masukkan dari keyboard
+    var textNama by remember { mutableStateOf(value = "") }
     var textAlamat by remember { mutableStateOf(value = "") }
     var textJK by remember { mutableStateOf(value = "") }
 
-    //variabel-variabel untuk menyimpan untuk menyimpan data yang diperoloh dari komponen
+    // variabel-variabel untuk menyimpan data yang diperoleh dari komponen
     var nama by remember { mutableStateOf(value = "") }
     var alamat by remember { mutableStateOf(value = "") }
     var jenis by remember { mutableStateOf(value = "") }
@@ -44,24 +51,27 @@ fun FormDataDiri(modifier : Modifier
             value = textNama,
             singleLine = true,
             shape = MaterialTheme.shapes.large,
-            modifer = Modifier.width(width = 250.dp),
+            modifier = Modifier.width(width = 250.dp),
             label = { Text(text = "Nama Lengkap") },
             onValueChange = {
                 textNama = it
             }
         )
         Row {
-            gender.farEach { item ->
+            gender.forEach { item ->
                 Row(
                     modifier = Modifier.selectable(
-                    selected = textJK == item,
-                    onClick = { textJK = item }
-                ), verticalAlignment = Alignment.CenterVertically) {
+                        selected = textJK == item,
+                        onClick = { textJK = item }
+                    ),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
                     RadioButton(
-                        selected = TextJK == item,
+                        selected = textJK == item,
                         onClick = {
                             textJK = item
-                        })
+                        }
+                    )
                     Text(text = item)
                 }
             }
@@ -78,7 +88,7 @@ fun FormDataDiri(modifier : Modifier
 
         HorizontalDivider(
             modifier = Modifier.padding(
-                button = dimensionResource(id = R.dimen.padding_medium),
+                bottom = dimensionResource(id = R.dimen.padding_medium),
                 top = dimensionResource(id = R.dimen.padding_medium)
             ),
             thickness = dimensionResource(id = R.dimen.divider_tipis),
@@ -86,7 +96,6 @@ fun FormDataDiri(modifier : Modifier
         )
         Button(
             modifier = Modifier.fillMaxWidth(fraction = 1f),
-            // the button is enabled when the user makes a selection
             enabled = textAlamat.isNotEmpty(),
             onClick = {
                 nama = textNama
@@ -102,12 +111,11 @@ fun FormDataDiri(modifier : Modifier
                 bottom = dimensionResource(id = R.dimen.padding_medium),
                 top = dimensionResource(id = R.dimen.padding_medium)
             ),
-            thickness = dimensionResource(1 dp),
-            color = Color.DarkGrey
+            thickness = 1.dp, // ← ini yang benar, bukan dimensionResource(1.dp)
+            color = Color.DarkGray
         )
         Button(
             modifier = Modifier.fillMaxWidth(1f),
-            // the button is enabled when the user makes a selection
             enabled = textAlamat.isNotEmpty(),
             onClick = {
                 nama = textNama
@@ -120,9 +128,8 @@ fun FormDataDiri(modifier : Modifier
 
         HorizontalDivider(
             modifier = Modifier.padding(
-                bottom = dimensionResource(R.dimen.padding_medium), top = dimensionResource(
-                    id = R.dimen.padding_medium
-                )
+                bottom = dimensionResource(R.dimen.padding_medium),
+                top = dimensionResource(id = R.dimen.padding_medium)
             ),
             thickness = dimensionResource(R.dimen.divider_tipis),
             color = Color.DarkGray
@@ -135,7 +142,7 @@ fun FormDataDiri(modifier : Modifier
                 .height(100.dp)
                 .width(300.dp)
         ) {
-            Column(modifier = Modifier.padding(horizontal = 5.dp, vertical = 15.dp),) {
+            Column(modifier = Modifier.padding(horizontal = 5.dp, vertical = 15.dp)) {
                 Text(text = "Nama   : " + nama, color = Color.White)
                 Text(text = "Gender : " + jenis, color = Color.White)
                 Text(text = "Alamat : " + alamat, color = Color.White)
