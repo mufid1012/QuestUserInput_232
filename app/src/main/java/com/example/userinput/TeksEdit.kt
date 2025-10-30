@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -89,7 +90,11 @@ fun FormDataDiri(modifier : Modifier
                 jenis=textJK
                 alamat=textAlamat
             }
-        )
+        ){
+            Text(text = stringResource(id = R.string.submit))
+        }
+
+
 
     }
 
