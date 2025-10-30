@@ -13,6 +13,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -66,6 +69,13 @@ fun FormDataDiri(modifier : Modifier
             onValueChange = {
                 textAlamat = it
             }
+        )
+
+        HorizontalDivider(
+            modifier = Modifier.padding(
+                button = dimensionResource(id = R.dimen.padding_medium),
+                top = dimensionResource(id = R.dimen.padding_medium)
+            )
         )
     }
 
