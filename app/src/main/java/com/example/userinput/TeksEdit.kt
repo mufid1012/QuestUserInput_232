@@ -13,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.ui.res.dimensionResource
@@ -78,6 +79,14 @@ fun FormDataDiri(modifier : Modifier
             ),
             thickness = dimensionResource( id = R.dimen.divider_tipis),
             color = Color.DarkGray
+        )
+        Button(
+            modifier = Modifier.fillMaxWidth(fraction = 1f),
+            // the button is enabled when the user makes a selection
+            enabled = textAlamat.isNotEmpty(),
+            onClick = {
+
+            }
         )
     }
 
