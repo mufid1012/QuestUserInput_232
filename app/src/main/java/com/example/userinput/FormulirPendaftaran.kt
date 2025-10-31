@@ -1,5 +1,7 @@
 package com.exmaple.userinput
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
@@ -13,4 +15,15 @@ fun FormulirPendaftaran(modifier: Modifier) {
 
     val listGender = listOf("Laki-laki", "Perempuan")
     val listStatus = listOf("Janda", "Lajang", "Duda")
+
+    Column (
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFFB388FF)),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Top
+    ) {
+
+
+    }
 }
