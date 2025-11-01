@@ -100,7 +100,20 @@ fun FormulirPendaftaran(modifier: Modifier) {
                     placeholder = { Text("Alamat") }
                 )
 
-
+                Button(
+                    onClick = { /* aksi tombol */ },
+                    enabled = true,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 10.dp)
+                        .height(52.dp), // sedikit lebih tinggi biar proporsional
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF7E57C2)),
+                    shape = RoundedCornerShape(50.dp) // radius besar
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.submit),
+                        fontSize = 18.sp,
+                        color = Color.White
             }
         }
     }
