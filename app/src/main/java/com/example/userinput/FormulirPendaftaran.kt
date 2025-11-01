@@ -1,9 +1,14 @@
 package com.exmaple.userinput
 
+import android.view.RoundedCorner
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 
 
 @Composable
@@ -38,6 +43,25 @@ fun FormulirPendaftaran(modifier: Modifier) {
                 fontWeight = FontWeight.Normal,
                 color = Color.White
             )
+        }
+
+        Spacer(modifier = Modifier.height(25.dp))
+
+        //main form
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = dimensionResource(id = R.dimen.padding_medium)),
+            shape = RoundedCornerShape(16.dp),
+            elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
+        ){
+            Column(
+                modifier = Modifier
+                    .padding(all = dimensionResource(id = R.dimen.padding_medium)),
+                verticalArrangement = Arrangement.spacedBy(15.dp)
+            ) {
+
+            }
         }
     }
 }
