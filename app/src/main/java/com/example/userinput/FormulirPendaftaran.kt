@@ -110,7 +110,8 @@ fun FormulirPendaftaran(modifier: Modifier = Modifier) {
                         .fillMaxWidth()
                         .padding(top = 10.dp)
                         .height(52.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF7E57C2)),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFF2196F3)),
                     shape = RoundedCornerShape(50.dp)
                 ) {
                     Text(
