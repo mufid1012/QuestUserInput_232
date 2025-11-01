@@ -67,7 +67,18 @@ fun FormulirPendaftaran(modifier: Modifier) {
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth(),
                     placeholder = { Text("Isian nama lengkap") }
+                )
 
+                Text("JENIS KELAMIN", fontWeight = FontWeight.SemiBold)
+                listGender.forEach { item ->
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        RadioButton(
+                            selected = gender == item,
+                            onClick = { gender = item }
+                        )
+                        Text(text = item)
+                    }
+                }
             }
         }
     }
