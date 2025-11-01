@@ -23,7 +23,21 @@ fun FormulirPendaftaran(modifier: Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-
-
+        //Header Ungu
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(100.dp)
+                .background(Color(0xFF7E57C2))
+                .padding(start = 24.dp, bottom = 10.dp),
+            contentAlignment = Alignment.BottomStart
+        ) {
+            Text(
+                text = "Formulir Pendaftaran",
+                fontSize = 30.sp,
+                fontWeight = FontWeight.Normal,
+                color = Color.White
+            )
+        }
     }
 }
