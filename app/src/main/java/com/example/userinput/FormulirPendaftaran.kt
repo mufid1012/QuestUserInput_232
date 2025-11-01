@@ -27,8 +27,8 @@ fun FormulirPendaftaran(modifier: Modifier = Modifier) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background  // warna ungu muda bawah
-                horizontalAlignment = Alignment.CenterHorizontally,
+            .background(Color(0xFFEDE7F6)), // warna ungu muda bawah
+        horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
         // Header ungu tua
@@ -109,9 +109,9 @@ fun FormulirPendaftaran(modifier: Modifier = Modifier) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(top = 10.dp)
-                        .height(52.dp), // sedikit lebih tinggi biar proporsional
+                        .height(52.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF7E57C2)),
-                    shape = RoundedCornerShape(50.dp) // radius besar
+                    shape = RoundedCornerShape(50.dp)
                 ) {
                     Text(
                         text = stringResource(id = R.string.submit),
