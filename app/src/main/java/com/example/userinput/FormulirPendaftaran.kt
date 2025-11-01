@@ -27,7 +27,7 @@ fun FormulirPendaftaran(modifier: Modifier = Modifier) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFEDE7F6)), // warna ungu muda bawah
+            .background(Color(0xFFD1C4E9)), // warna ungu muda
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
