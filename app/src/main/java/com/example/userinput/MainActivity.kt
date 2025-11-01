@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             UserInputTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    FormDataDiri(modifier = Modifier.padding(innerPadding))
+                    FormulirPendaftaran(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -30,6 +30,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     UserInputTheme {
-        FormDataDiri(modifier = Modifier)
+        FormulirPendaftaran(modifier = Modifier)
     }
 }
