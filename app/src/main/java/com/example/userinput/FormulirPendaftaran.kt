@@ -1,4 +1,4 @@
-package com.exmaple.userinput
+package com.example.userinput
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -14,9 +14,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-
 @Composable
-fun FormulirPendaftaran(modifier: Modifier) {
+fun FormulirPendaftaran(modifier: Modifier = Modifier) {
     var nama by remember { mutableStateOf("") }
     var alamat by remember { mutableStateOf("") }
     var gender by remember { mutableStateOf("") }
@@ -25,14 +24,14 @@ fun FormulirPendaftaran(modifier: Modifier) {
     val listGender = listOf("Laki-laki", "Perempuan")
     val listStatus = listOf("Janda", "Lajang", "Duda")
 
-    Column (
+    Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFB388FF)),
-        horizontalAlignment = Alignment.CenterHorizontally,
+            .background  // warna ungu muda bawah
+                horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        //Header Ungu
+        // Header ungu tua
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -51,14 +50,14 @@ fun FormulirPendaftaran(modifier: Modifier) {
 
         Spacer(modifier = Modifier.height(25.dp))
 
-        //main form
+        // Isi form utama
         Card(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = dimensionResource(id = R.dimen.padding_medium)),
             shape = RoundedCornerShape(16.dp),
             elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
-        ){
+        ) {
             Column(
                 modifier = Modifier
                     .padding(all = dimensionResource(id = R.dimen.padding_medium)),
@@ -118,6 +117,8 @@ fun FormulirPendaftaran(modifier: Modifier) {
                         text = stringResource(id = R.string.submit),
                         fontSize = 18.sp,
                         color = Color.White
+                    )
+                }
             }
         }
     }
