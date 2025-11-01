@@ -60,6 +60,13 @@ fun FormulirPendaftaran(modifier: Modifier) {
                     .padding(all = dimensionResource(id = R.dimen.padding_medium)),
                 verticalArrangement = Arrangement.spacedBy(15.dp)
             ) {
+                Text("NAMA LENGKAP", fontWeight = FontWeight.SemiBold)
+                OutlinedTextField(
+                    value = nama,
+                    onValueChange = { nama = it },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth(),
+                    placeholder = { Text("Isian nama lengkap") }
 
             }
         }
